@@ -19,6 +19,7 @@ var Store = function (options) {
   this._opts = options || {}
   if (!this._opts.bprefix) this._opts.bprefix = "b:base64:"
   this.db = new Datastore({ filename: this._opts.filename, autoload: true })
+  this.db.persistence.setAutocompactionInterval(30 * 1000);
 }
 
 /**
